@@ -8,7 +8,7 @@ st.title("🛍️ AI-Powered Business Dashboard")
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv('cleaned_ecommerce_sales.csv')
+    df = pd.read_csv('cleaned_ecommerce_sales.csv.gz', compression='gzip')
     df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])
     df = df[df['CustomerID'] != 'Guest_Checkout']
     return df
